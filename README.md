@@ -13,10 +13,10 @@ Through hands-on sessions, guided mentorship, and open-source collaboration, par
 ## What You’ll Find Here
 This repository serves as the central coordination point for the program. It captures:
 
-📂 Assignments – Weekly exercises and challenges
-🧭 Resources – Reading materials, slides, and reference documentation
-💻 Submissions – Participant work submitted via Pull Requests
-⚙️ Rust Integration Tasks – Later-stage coding projects in Rust
+- 📂 Assignments – Weekly exercises and challenges
+- 🧭 Resources – Reading materials, slides, and reference documentation
+- 💻 Submissions – Participant work submitted via Pull Requests
+- ⚙️ Rust Integration Tasks – Later-stage coding projects in Rust
 
 
 
