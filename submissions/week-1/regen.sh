@@ -1,0 +1,1 @@
+for i in {1..5}; do bitcoin-cli -regtest getnewaddress; done
