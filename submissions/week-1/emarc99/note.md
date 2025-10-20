@@ -993,35 +993,35 @@ This assignment successfully demonstrated comprehensive understanding of Bitcoin
 
 ### Node Operations
 ```bash
-bitcoin-cli -regtest getblockchaininfo
-bitcoin-cli -regtest getblockcount
-bitcoin-cli -regtest getbestblockhash
-bitcoin-cli -regtest getblock <blockhash>
-bitcoin-cli -regtest getblockheader <blockhash>
-bitcoin-cli -regtest getmempoolinfo
+bitcoin-cli getblockchaininfo
+bitcoin-cli getblockcount
+bitcoin-cli getbestblockhash
+bitcoin-cli getblock <blockhash>
+bitcoin-cli getblockheader <blockhash>
+bitcoin-cli getmempoolinfo
 ```
 
 ### Wallet Management
 ```bash
-bitcoin-cli -regtest createwallet "<name>"
-bitcoin-cli -regtest listwallets
-bitcoin-cli -regtest -rpcwallet=<name> getnewaddress
-bitcoin-cli -regtest -rpcwallet=<name> getbalance
-bitcoin-cli -regtest -rpcwallet=<name> listunspent
-bitcoin-cli -regtest -rpcwallet=<name> listreceivedbyaddress 0 true
+bitcoin-cli createwallet "<name>"
+bitcoin-cli listwallets
+bitcoin-cli -rpcwallet=<name> getnewaddress
+bitcoin-cli -rpcwallet=<name> getbalance
+bitcoin-cli -rpcwallet=<name> listunspent
+bitcoin-cli -rpcwallet=<name> listreceivedbyaddress 0 true
 ```
 
 ### Transaction Operations
 ```bash
-bitcoin-cli -regtest -rpcwallet=<name> -named sendtoaddress address=<addr> amount=<btc> fee_rate=<sat/vb>
-bitcoin-cli -regtest -rpcwallet=<name> gettransaction <txid>
-bitcoin-cli -regtest getrawtransaction <txid> true
+bitcoin-cli -rpcwallet=<name> -named sendtoaddress address=<addr> amount=<btc> fee_rate=<sat/vb>
+bitcoin-cli -rpcwallet=<name> gettransaction <txid>
+bitcoin-cli getrawtransaction <txid> true
 ```
 
 ### Mining (Regtest)
 ```bash
-bitcoin-cli -regtest -rpcwallet=<name> -generate <blocks>
-bitcoin-cli -regtest generatetoaddress <blocks> "<address>"
+bitcoin-cli -rpcwallet=<name> -generate <blocks>
+bitcoin-cli generatetoaddress <blocks> "<address>"
 ```
 
 ---
