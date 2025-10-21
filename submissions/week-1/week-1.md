@@ -78,3 +78,44 @@ fallbackfee=0.00001
 - After restarting the node, I was able to make the transaction (which returned a transaction hash) and get the transaction details usimg the `gettransction` command.
 
 ## ✅ Inspecting and understanding UTXOs
+- Initially, when I checked my spendable outputs using the `listunspent` command, it returned an empty array.
+
+> 💡 Then I understood that, the `listunspent` command only returned UTXOs that were confirmed, that means, my transactions were not confirmed yet (still in the mempool). And for my trnsactions to be confirmed, I needed to mine a block!
+
+![utxos](./images/pic-10.png)
+ 
+After I mined a block, the `listunspent` command  returned the UTXOs containing details like `txid`, `vout`,`address`, `amount` e.t.c
+
+## ✅ Decoding Raw Transactions - Understanding Bitcoin's transaction model
+
+- I learnt that to fetch raw transactions, you needed to use the `blockhash` of that transaction as a parameter and the `verbosity` (to determine the format of display of information - 0,1 or 2)
+- When I initially tried to fetch the raw transaction, it returned an error
+
+![raw_txn_1](./images/pic-11.png)
+- I noticed that using the `getrawtransaction` command provided additional details like `vin`, `vout` which represent the input and output struture of transactions. The `vout` section had 2 parts that represents the value that was sent and the value that was returned as change.
+
+![raw_txn_2](./images/pic-12.png)
+
+## ✅ Payment Workflow Simulation
+
+- I simulated a payment workflow by creating two wallets the `sender` and the `receiver`. I created addresses for each wallet and attempted to make transactions between them
+
+ Creating the `sender` and `receiver` wallets and mining blocks to a new address in the sender wallet
+![payment_1](./images/pic-13.png)
+
+- Verifying the balance in the wallets
+- Creating a new address for the receiver wallet 
+- Sending 10 coins from the sender to the receiver
+- Mined a block to confirm the transaction
+- Verified the balance of the receiver to be 10
+
+![payment_2](./images/pic-14.png)
+
+- Getting the transaction details using the `gettransaction` command
+- Verified that the transactionis confirmed because the `confirmations` field is `1`
+
+![payment_3](./images/pic-15.png)
+
+- Getting the raw transaction details using the `getrawtransaction` command with the blockhash
+- Verified that the transactionis confirmed because the `in_active_chain` field is `true`
+![payment_4](./images/pic-16.png)
