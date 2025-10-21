@@ -35,7 +35,7 @@ Confirm Bitcoin Core node is properly configured and responsive in regtest mode.
 
 ### Command Executed
 ```bash
-bitcoin-cli -regtest getblockchaininfo
+bitcoin-cli  getblockchaininfo
 ```
 
 ### Results
@@ -69,7 +69,7 @@ bitcoin-cli -regtest getblockchaininfo
 
 ### Verification Command
 ```bash
-bitcoin-cli -regtest getblockcount
+bitcoin-cli  getblockcount
 # Output: 101
 ```
 
@@ -85,12 +85,12 @@ Bitcoin requires newly mined coins (coinbase rewards) to mature for 100 blocks b
 
 ### Command Pattern
 ```bash
-bitcoin-cli -regtest generatetoaddress 101 "$(bitcoin-cli -regtest getnewaddress)"
+bitcoin-cli  generatetoaddress 101 "$(bitcoin-cli  getnewaddress)"
 ```
 
 ### Best Block Hash
 ```bash
-bitcoin-cli -regtest getbestblockhash
+bitcoin-cli  getbestblockhash
 # Output: 3c2f3cdf8cd7b7754499eb52fdefaf4203b63788c50d4cc9bc0d310526738d35
 ```
 
@@ -110,7 +110,7 @@ Deep dive into Bitcoin block structure, understanding headers, merkle roots, and
 
 **Command:**
 ```bash
-bitcoin-cli -regtest getblockheader 3c2f3cdf8cd7b7754499eb52fdefaf4203b63788c50d4cc9bc0d310526738d35
+bitcoin-cli  getblockheader 3c2f3cdf8cd7b7754499eb52fdefaf4203b63788c50d4cc9bc0d310526738d35
 ```
 
 **Output:**
@@ -137,7 +137,7 @@ bitcoin-cli -regtest getblockheader 3c2f3cdf8cd7b7754499eb52fdefaf4203b63788c50d
 
 **Command:**
 ```bash
-bitcoin-cli -regtest getblock 3c2f3cdf8cd7b7754499eb52fdefaf4203b63788c50d4cc9bc0d310526738d35
+bitcoin-cli  getblock 3c2f3cdf8cd7b7754499eb52fdefaf4203b63788c50d4cc9bc0d310526738d35
 ```
 
 **Output:**
@@ -197,7 +197,7 @@ Demonstrate proficiency in creating and managing Bitcoin wallets and generating 
 
 **Command:**
 ```bash
-bitcoin-cli -regtest createwallet "testwallet"
+bitcoin-cli  createwallet "testwallet"
 ```
 
 **Output:**
@@ -213,7 +213,7 @@ Generated multiple native SegWit (bech32) addresses:
 
 **Commands:**
 ```bash
-bitcoin-cli -regtest -rpcwallet=testwallet getnewaddress
+bitcoin-cli  -rpcwallet=testwallet getnewaddress
 ```
 
 **Generated Addresses:**
@@ -225,7 +225,7 @@ bitcoin-cli -regtest -rpcwallet=testwallet getnewaddress
 
 **Command:**
 ```bash
-bitcoin-cli -regtest -rpcwallet=testwallet listreceivedbyaddress 0 true
+bitcoin-cli  -rpcwallet=testwallet listreceivedbyaddress 0 true
 ```
 
 **Output:**
@@ -270,20 +270,20 @@ Execute and monitor Bitcoin transactions, understanding the transaction lifecycl
 
 ### 5.1 Initial Wallet State
 
-Discovered existing wallet with mature coinbase reward:
+I have an existing wallet with mature coinbase reward:
 
 **Command:**
 ```bash
-bitcoin-cli -regtest -rpcwallet=wallet01 getbalance
+bitcoin-cli  -rpcwallet=wallet01 getbalance
 ```
 
-**Output:** `50.00000000 BTC`
+**Output:** `50.00000000`
 
 ### 5.2 Transaction Execution
 
 **Command:**
 ```bash
-bitcoin-cli -regtest -rpcwallet=wallet01 -named sendtoaddress \
+bitcoin-cli  -rpcwallet=wallet01 -named sendtoaddress \
   address=bcrt1q85end92xe7wrye92xhwzfawqz8xlvcx0pt5dn2 \
   amount=5.0 \
   fee_rate=1
@@ -295,7 +295,7 @@ bitcoin-cli -regtest -rpcwallet=wallet01 -named sendtoaddress \
 
 **Command:**
 ```bash
-bitcoin-cli -regtest -rpcwallet=wallet01 gettransaction 71a6cc26f4ec170245eb2e3e4536cee6bb416e6abd51939cbd29109e511d2aab
+bitcoin-cli  -rpcwallet=wallet01 gettransaction 71a6cc26f4ec170245eb2e3e4536cee6bb416e6abd51939cbd29109e511d2aab
 ```
 
 **Output:**
@@ -337,7 +337,7 @@ bitcoin-cli -regtest -rpcwallet=wallet01 gettransaction 71a6cc26f4ec170245eb2e3e
 
 **Command:**
 ```bash
-bitcoin-cli -regtest -rpcwallet=wallet01 -generate 1
+bitcoin-cli  -rpcwallet=wallet01 -generate 1
 ```
 
 **Output:**
@@ -361,7 +361,7 @@ Understand Bitcoin's UTXO model and how spendable outputs are represented and ma
 
 **Command:**
 ```bash
-bitcoin-cli -regtest -rpcwallet=testwallet listunspent
+bitcoin-cli  -rpcwallet=testwallet listunspent
 ```
 
 **Output:**
@@ -388,7 +388,7 @@ bitcoin-cli -regtest -rpcwallet=testwallet listunspent
 
 **Command:**
 ```bash
-bitcoin-cli -regtest -rpcwallet=wallet01 listunspent
+bitcoin-cli  -rpcwallet=wallet01 listunspent
 ```
 
 **Output (Excerpt):**
@@ -454,7 +454,7 @@ Deep technical understanding of Bitcoin transaction structure at the protocol le
 
 **Command:**
 ```bash
-bitcoin-cli -regtest getrawtransaction 71a6cc26f4ec170245eb2e3e4536cee6bb416e6abd51939cbd29109e511d2aab true
+bitcoin-cli  getrawtransaction 71a6cc26f4ec170245eb2e3e4536cee6bb416e6abd51939cbd29109e511d2aab true
 ```
 
 ### 7.2 Decoded Transaction Structure
@@ -506,7 +506,12 @@ bitcoin-cli -regtest getrawtransaction 71a6cc26f4ec170245eb2e3e4536cee6bb416e6ab
         "type": "witness_v0_keyhash"
       }
     }
-  ]
+  ],
+  "hex": "02000000000101972285e88ed36c3c7e36528dc79921d973365c2c6d4582dc5ad91656cad109aa0000000000fdffffff02738c380c0100000016001432f5f91b7b2b9d6df3cb2f6317c244e248eb0a1c0065cd1d000000001600143d33369546cf9c3264aa35dc24f5c011cdf660cf024730440220385c44a73bafbd3252315a4e4854fd8ee11c3bbb6de2eb63445a86c5258cab620220232702a312d08f09bd2ad81d4fc9bf3d94f9c17f520110601848188a696bfdba012102acd8a19970b8ba003c201d5a7dbeaba962aa62e3e8ceb4988d8b8bc194f966c800000000",
+  "blockhash": "2bd2b730309bdd6cade6c344729a1c7cb857eea4beb6524f9344d36d5bee3757",
+  "confirmations": 103,
+  "time": 1760979204,
+  "blocktime": 1760979204
 }
 ```
 
@@ -584,8 +589,8 @@ Demonstrate complete understanding of Bitcoin payment lifecycle from wallet crea
 
 **Commands:**
 ```bash
-bitcoin-cli -regtest createwallet "sender"
-bitcoin-cli -regtest createwallet "receiver"
+bitcoin-cli  createwallet "sender"
+bitcoin-cli  createwallet "receiver"
 ```
 
 **Success Output:**
@@ -598,13 +603,13 @@ bitcoin-cli -regtest createwallet "receiver"
 
 **Sender Address:**
 ```bash
-bitcoin-cli -regtest -rpcwallet=sender getnewaddress
+bitcoin-cli  -rpcwallet=sender getnewaddress
 # Output: bcrt1qmjv4x6kjhr7cwjz34a3yyy26fsf06tld3ld3sq
 ```
 
 **Receiver Address:**
 ```bash
-bitcoin-cli -regtest -rpcwallet=receiver getnewaddress
+bitcoin-cli  -rpcwallet=receiver getnewaddress
 # Output: bcrt1qqw3uexu5cr90assud4929h9tfw9553fr6mnluf
 ```
 
@@ -614,7 +619,7 @@ Generated 101 blocks to sender wallet to create mature coinbase rewards:
 
 **Command:**
 ```bash
-bitcoin-cli -regtest -rpcwallet=sender -generate 101
+bitcoin-cli  -rpcwallet=sender -generate 101
 ```
 
 **Result:**
@@ -625,7 +630,7 @@ bitcoin-cli -regtest -rpcwallet=sender -generate 101
 
 **Command:**
 ```bash
-bitcoin-cli -regtest -rpcwallet=sender -named sendtoaddress \
+bitcoin-cli  -rpcwallet=sender -named sendtoaddress \
   address=bcrt1qqw3uexu5cr90assud4929h9tfw9553fr6mnluf \
   amount=10.0 \
   fee_rate=1
@@ -637,13 +642,14 @@ bitcoin-cli -regtest -rpcwallet=sender -named sendtoaddress \
 
 **Command:**
 ```bash
-bitcoin-cli -regtest getrawtransaction f983ddf76c66e7576f6af9718fc2204575eb0d4d803d5ce69ccd3c91f85a07f3 true
+bitcoin-cli  getrawtransaction f983ddf76c66e7576f6af9718fc2204575eb0d4d803d5ce69ccd3c91f85a07f3 true
 ```
 
 **Key Details:**
 ```json
 {
   "txid": "f983ddf76c66e7576f6af9718fc2204575eb0d4d803d5ce69ccd3c91f85a07f3",
+  "hash": "f8ce12c3bae29a2ac3948df910e7b5d7a2a55034655ace87dfe570073d4ba257",
   "version": 2,
   "size": 222,
   "vsize": 141,
@@ -652,7 +658,16 @@ bitcoin-cli -regtest getrawtransaction f983ddf76c66e7576f6af9718fc2204575eb0d4d8
   "vin": [
     {
       "txid": "0a69039036c2bc36b232ba54e483fe785f91f1705ae60a948baba201dd432a36",
-      "vout": 0
+      "vout": 0,
+      "scriptSig": {
+        "asm": "",
+        "hex": ""
+    },
+    "txinwitness": [
+      "3044022000daf5fcf322c5c77adc2c290fa263a805dd4adea6b5f4dd659227e60cb3e0f502207d23139318c8d7e06abc11195d4b10ae9507d756da32c309a0f1ff0335158ba101",
+      "02a085f18c40c609c0d6a2b450e8bd50235f4538b6a9874dc14e8d343d528b6f19"
+    ],
+    "sequence": 4294967293
     }
   ],
   "vout": [
@@ -660,6 +675,9 @@ bitcoin-cli -regtest getrawtransaction f983ddf76c66e7576f6af9718fc2204575eb0d4d8
       "value": 10.00000000,
       "n": 0,
       "scriptPubKey": {
+        "asm": "0 03a3cc9b94c0cafec21c6d4aa2dcab4b8b4a4523",
+        "desc": "addr(bcrt1qqw3uexu5cr90assud4929h9tfw9553fr6mnluf)#2w5qq4qk",
+        "hex": "001403a3cc9b94c0cafec21c6d4aa2dcab4b8b4a4523",
         "address": "bcrt1qqw3uexu5cr90assud4929h9tfw9553fr6mnluf",
         "type": "witness_v0_keyhash"
       }
@@ -668,11 +686,19 @@ bitcoin-cli -regtest getrawtransaction f983ddf76c66e7576f6af9718fc2204575eb0d4d8
       "value": 39.99999859,
       "n": 1,
       "scriptPubKey": {
+        "asm": "0 233c11a2a4d33adfc752a23570e5c68c867da2a3",
+        "desc": "addr(bcrt1qyv7prg4y6vadl36j5g6hpewx3jr8mg4r2mmejj)#797mu506",
+        "hex": "0014233c11a2a4d33adfc752a23570e5c68c867da2a3",
         "address": "bcrt1qyv7prg4y6vadl36j5g6hpewx3jr8mg4r2mmejj",
         "type": "witness_v0_keyhash"
       }
     }
-  ]
+  ],
+  "hex": "02000000000101362a43dd01a2ab8b940ae65a70f1915f78fe83e454ba32b236bcc2369003690a0000000000fdffffff0200ca9a3b0000000016001403a3cc9b94c0cafec21c6d4aa2dcab4b8b4a452373276bee00000000160014233c11a2a4d33adfc752a23570e5c68c867da2a302473044022000daf5fcf322c5c77adc2c290fa263a805dd4adea6b5f4dd659227e60cb3e0f502207d23139318c8d7e06abc11195d4b10ae9507d756da32c309a0f1ff0335158ba1012102a085f18c40c609c0d6a2b450e8bd50235f4538b6a9874dc14e8d343d528b6f19cb000000",
+  "blockhash": "04c3f22cba9d26c3bc24dbcb856f58d7c181124b96e5d4075a485dce1818c37a",
+  "confirmations": 1,
+  "time": 1760979371,
+  "blocktime": 1760979371
 }
 ```
 
@@ -680,7 +706,7 @@ bitcoin-cli -regtest getrawtransaction f983ddf76c66e7576f6af9718fc2204575eb0d4d8
 
 **Command:**
 ```bash
-bitcoin-cli -regtest -rpcwallet=sender -generate 1
+bitcoin-cli  -rpcwallet=sender -generate 1
 ```
 
 **Confirmation Block:**
@@ -695,13 +721,13 @@ bitcoin-cli -regtest -rpcwallet=sender -generate 1
 
 **Receiver Balance:**
 ```bash
-bitcoin-cli -regtest -rpcwallet=receiver getbalance
+bitcoin-cli  -rpcwallet=receiver getbalance
 # Output: 10.00000000
 ```
 
 **Sender Balance:**
 ```bash
-bitcoin-cli -regtest -rpcwallet=sender getbalance
+bitcoin-cli  -rpcwallet=sender getbalance
 # Output: 89.99999859
 ```
 
@@ -729,7 +755,7 @@ Sender Final = Initial + Mining Reward - Amount Sent - Fee
 
 **Command:**
 ```bash
-bitcoin-cli -regtest getmempoolinfo
+bitcoin-cli  getmempoolinfo
 ```
 
 **Output:**
@@ -857,24 +883,15 @@ wpkh([97396d38/84h/1h/0h/0/0]03f67abe...)
 - Allows fee bumping for stuck transactions
 - Sender can replace unconfirmed transaction with higher fee version
 
-**My transaction:** Sequence 4294967293 (0xFFFFFFFD) enables RBF
+**My transaction:** 
+
+Sequence 4294967293 (0xFFFFFFFD) enables RBF
 
 ---
 
 ## 10. Technical Insights
 
-### 10.1 Regtest vs Other Networks
-
-| Aspect | Regtest | Testnet | Mainnet |
-|--------|---------|---------|---------|
-| **Mining** | Instant (on-demand) | ~10 min average | ~10 min average |
-| **Difficulty** | Minimal | Dynamic | Dynamic |
-| **Coins** | No value | No value | Real value |
-| **Network** | Local | Public | Public |
-| **Reset** | Anytime | Never | Never |
-| **Use Case** | Development | Testing | Production |
-
-### 10.2 Block Structure Deep Dive
+### 10.1 Block Structure Deep Dive
 
 **Components:**
 1. **Block Header (80 bytes):**
@@ -894,7 +911,7 @@ wpkh([97396d38/84h/1h/0h/0/0]03f67abe...)
 - Single transaction: Coinbase
 - Merkle root equals transaction ID (single tx optimization)
 
-### 10.3 Script Types Encountered
+### 10.2 Script Types Encountered
 
 **P2WPKH (Pay to Witness Public Key Hash):**
 - ScriptPubKey: `OP_0 <20-byte-hash>`
@@ -910,7 +927,7 @@ wpkh([97396d38/84h/1h/0h/0/0]03f67abe...)
 └─ OP_0 (witness version 0)
 ```
 
-### 10.4 Transaction Verification Process
+### 10.3 Transaction Verification Process
 
 **Steps Performed by Nodes:**
 1. **Structure Validation:** Correct format and fields
@@ -926,7 +943,7 @@ wpkh([97396d38/84h/1h/0h/0/0]03f67abe...)
 - Proper value accounting
 - Minimum fee paid
 
-### 10.5 Merkle Tree Concept
+### 10.4 Merkle Tree Concept
 
 **Purpose:**
 - Efficiently prove transaction inclusion in block
@@ -938,7 +955,7 @@ wpkh([97396d38/84h/1h/0h/0/0]03f67abe...)
 - Multi-transaction blocks: Binary tree of hashes
 - Root included in block header
 
-### 10.6 Bitcoin Address Encoding
+### 10.5 Bitcoin Address Encoding
 
 **Bech32 Format (Native SegWit):**
 - Human-readable part: "bcrt" (regtest)
@@ -952,7 +969,7 @@ wpkh([97396d38/84h/1h/0h/0/0]03f67abe...)
 - Program: 20-byte pubkey hash
 - Checksum: Built-in error detection
 
-### 10.7 Network Final State
+### 10.6 Network Final State
 
 **Final Block Count:** 204 blocks
 
@@ -970,6 +987,100 @@ wpkh([97396d38/84h/1h/0h/0/0]03f67abe...)
 **Successful Transactions:**
 1. wallet01 → testwallet: 5 BTC
 2. sender → receiver: 10 BTC
+
+---
+
+
+## Challenges Encountered and Solutions
+
+### 1. Fee Estimation Failure
+
+**Error:** `Fee estimation failed. Fallbackfee is disabled.`
+
+**Root Cause:** In regtest mode, there's no transaction history for Bitcoin Core to estimate fees dynamically. Without a fallback fee configured, the node rejects transactions.
+
+**Solution:** Used named parameters with explicit `fee_rate` argument:
+```bash
+bitcoin-cli -rpcwallet=wallet01 -named sendtoaddress \
+  address=<address> amount=5.0 fee_rate=1
+```
+
+This bypasses fee estimation by directly specifying 1 sat/vB rate.
+
+**Alternative Fix:** Add `fallbackfee=0.00001` to `bitcoin.conf` to enable automatic fallback when estimation unavailable.
+
+### 2. Parameter Type Mismatch
+
+**Error:** `Wrong type passed: JSON value of type number is not of expected type bool`
+
+**Root Cause:** The `sendtoaddress` command has strict parameter ordering. Passing `1`(fee rate) in the wrong position was interpreted as a boolean parameter.
+
+**Solution:** Switched from positional to named parameters using `-named` flag:
+
+`❌ Positional (failed)
+sendtoaddress <address> 5.0 "" "" false 1`
+
+`✅ Named (success)
+-named sendtoaddress address=<address> amount=5.0 fee_rate=1`
+
+**Lesson:** Named parameters provide clarity and avoid position-dependent errors, especially with optional arguments.
+
+### 3. Transaction Index Query Limitation
+
+**Error:**
+
+```
+error code: -5
+error message:
+No such mempool transaction. Use -txindex or provide a block hash to enable blockchain transaction queries. Use gettransaction for wallet transactions.
+```
+
+**Root Cause:** `getrawtransaction` can only retrieve transactions that are either:
+
+    1. In the mempool (unconfirmed), OR
+    2. In the blockchain with `txindex=1` enabled in `bitcoin.conf`
+
+Once a transaction is confirmed (mined into a block), it's no longer in the mempool. Without `txindex`, the node cannot look it up. 
+
+**Solution:** Used getrawtransaction before mining the confirmation block while transaction was still in mempool:
+
+- Step 1: Send transaction
+`bitcoin-cli  -rpcwallet=wallet01 -named sendtoaddress address=<addr> amount=5.0 fee_rate=1`
+Returns: txid
+
+- Step 2: Get raw transaction IMMEDIATELY (while in mempool)
+`bitcoin-cli  getrawtransaction <txid> true`
+✅ Success - transaction found in mempool
+
+- Step 3: Then mine block to confirm
+`bitcoin-cli  -rpcwallet=wallet01 -generate 1`
+
+**Key Insight:** Transaction queries must happen in the correct sequence - analyze the transaction while it's unconfirmed, then mine blocks. This mirrors real-world Bitcoin where you'd query mempool transactions before they're confirmed. 
+
+**Alternative Applied Solutions:**
+- Use `gettransaction` instead (wallet-specific, works after confirmation)
+- Enable `txindex=1` in `bitcoin.conf`, stop bitcoin core daemon with `bitcoin-cli stop` and run again with `bitcoind`  (_optional:_ `-reindex`)
+- Provide the block hash as third parameter: `getrawtransaction <txid> true <blockhash>`
+
+### 4. Command Syntax Learning Curve
+
+**Challenge:** Understanding the difference between wallet-specific and global commands.
+
+**Solution:**
+- Wallet operations require `-rpcwallet=<name>` flag insstead of repeating `loadwallet` and `unloadwallet` commands
+- Blockchain queries (`getblock`, `getrawtransaction`) don't need wallet specification
+- Mining commands (`-generate`) can be wallet-specific to receive coinbase rewards
+
+**Examples:**
+
+Wallet-specific
+- `bitcoin-cli  -rpcwallet=sender getbalance`
+
+Global blockchain query
+- `bitcoin-cli  getblockchaininfo`
+
+Timing-sensitive query (mempool)
+- `bitcoin-cli  getrawtransaction <txid> true`
 
 ---
 
