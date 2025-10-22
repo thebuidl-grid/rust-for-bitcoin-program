@@ -13,7 +13,7 @@ Confirm your Bitcoin Core node is running in regtest mode.
 
 ### 2. Generate Blocks: Understand block creation and coinbase maturity on regtest.
 - Use the command below to generate 101 blocks to a new address:
-`bitcoin-cli -regtest generatetoaddress 101 "$(bitcoin-cli -regtest getnewaddress)"`
+<!-- `bitcoin-cli -regtest generatetoaddress 101 "$(bitcoin-cli -regtest getnewaddress)"` -->
 - Verify the new block height with getblockcount.
 
 
