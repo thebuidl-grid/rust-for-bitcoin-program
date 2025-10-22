@@ -1,37 +1,36 @@
-<<<<<<< HEAD
 ### 1. Verify Your Node Setup: Ensure your node is correctly configured and responsive via CLI
 
-![Screenshot](https://greasy-yellow-7wefaen07t.edgeone.app/Screenshot%20From%202025-10-20%2010-45-23.png)
+![Screenshot](https://res.cloudinary.com/dmkicbywv/image/upload/v1761127726/Screenshot_From_2025-10-20_10-45-23_emjkac.png)
 
 - chain: regtest
 - blocks: 105
 
 ### 2. Generate Blocks: Understand block creation and coinbase maturity on regtest
 
-![Screenshot](https://greasy-yellow-7wefaen07t.edgeone.app/Screenshot%20From%202025-10-20%2011-05-42.png)
+![Screenshot](https://res.cloudinary.com/dmkicbywv/image/upload/v1761127726/Screenshot_From_2025-10-20_11-05-42_qf1kpy.png)
 
 - block count: 206
 
 ### 3. Explore the Blockchain: Learn the structure and metadata of Bitcoin blocks
 
-![screenshot](https://married-amethyst-vc2nj8y2j4.edgeone.app/Screenshot%20From%202025-10-20%2018-47-05.png) (https://stiff-turquoise-thgm1l4w7o.edgeone.app/Screenshot%20From%202025-10-20%2018-47-57.png)
+![screenshot](https://res.cloudinary.com/dmkicbywv/image/upload/v1761138575/Screenshot_From_2025-10-20_18-47-05_b5xqvv.png)
 
 ### 4. Work with Wallets: Get comfortable managing multiple wallets and addresses
 
-![screenshot](http://greasy-yellow-7wefaen07t.edgeone.app/Screenshot%20From%202025-10-20%2010-58-23.png)\n(https://greasy-yellow-7wefaen07t.edgeone.app/Screenshot%20From%202025-10-20%2011-01-03.png) \n ()
+![screenshot](https://res.cloudinary.com/dmkicbywv/image/upload/v1761127727/Screenshot_From_2025-10-20_11-12-11_sbuht0.png)\n(https://res.cloudinary.com/dmkicbywv/image/upload/v1761127727/Screenshot_From_2025-10-20_11-14-14_vf6ch4.png) \n ()
 
 
 - "testwallet" already exist, so I created few new addresses
 
 ### 5. Send and Track Transactions: Learn how transactions are created, broadcast, and confirmed
 
-![screenshot](https://dominant-cyan-mggz9znqla.edgeone.app/Screenshot%20From%202025-10-20%2018-56-01.png)
+![screenshot](https://res.cloudinary.com/dmkicbywv/image/upload/v1761127778/Screenshot_From_2025-10-20_18-56-01_ojw8ls.png)
 
 - I had to specify the fee_rate for the txn to go
 
 ### 6. Inspect UTXOs: Send and Track Transactions: Understand how UTXOs represent spendable Bitcoin
 
-![screenshot](https://dominant-cyan-mggz9znqla.edgeone.app/Screenshot%20From%202025-10-20%2019-00-58.png)
+![screenshot](https://res.cloudinary.com/dmkicbywv/image/upload/v1761127872/Screenshot_From_2025-10-20_18-47-05_q94xqu.png)
 
 - txid: 631515746bdb98691d8897d38a6f55572a4ba3ffe03c40628d30a610be3e94ef
 - vout: 0
@@ -151,47 +150,3 @@ bitcoin-cli -rpcwallet=receiver getbalance
 ```
 
 
-=======
-# Week 1 Assignment 
-
-I learnt the fundamentals of the bitcoin network and how to setup a local development environment using Bitcoin core.
-
-### 1. Startup deamon and getblockchaininfo:
-![alt text](1.png)
-
-### 2. GenrateBlocks:
-![alt text](<Screenshot 2025-10-18 121634.png>)
-
-![alt text](<Screenshot 2025-10-18 121933.png>)
-
-![alt text](<Screenshot 2025-10-18 122159.png>)
-
-### 3. Inspect blocks:
-![alt text](<Screenshot 2025-10-18 123018.png>)
-
-![alt text](<Screenshot 2025-10-18 123226.png>)
-
-### 4. Multiple wallets and addresses:
-![alt text](<Screenshot 2025-10-18 124026.png>)
-
-![alt text](<Screenshot 2025-10-18 135825.png>)
-
-![alt text](<Screenshot 2025-10-18 140349.png>)
-
-### 5. Send and Track Transactions:
-![alt text](<Screenshot 2025-10-18 161855.png>)
-
-![alt text](<Screenshot 2025-10-18 162448.png>)
-
-![alt text](<Screenshot 2025-10-18 163409.png>)
-
-### 6. Inspect UTXOs:
-![alt text](<Screenshot 2025-10-18 164115.png>)
-
-### 7. Decode a Raw Transaction:
-```
-./bitcoin-cli getrawtransaction \
- "c9bbefa4d35458542603e7d9fe1b481369a2852e0e5c38a6d06b0753baa27750" \
-  1 \
-  "1f8dc73d3604981bb2ec987fd9a029015ddbaa7ba36af055f490bf9bcfb7121f"
->>>>>>> 6efcbc712f1988d3b5dac19cc1f62bddf90fe37b
