@@ -1,36 +1,42 @@
-## Task 1:
+# Week 1 Assignment 
 
-<img width="748" height="335" alt="image" src="https://github.com/user-attachments/assets/35747010-d98b-4f3e-b9a2-93868ff5568e" />
+I learnt the fundamentals of the bitcoin network and how to setup a local development environment using Bitcoin core.
 
-## Task 2:
-<img width="748" height="335" alt="image" src="https://github.com/user-attachments/assets/e114eb0c-fbbd-4eb2-a93d-d8adf62639c1" />
+### 1. Startup deamon and getblockchaininfo:
+![alt text](1.png)
 
-## Task 3:
-<img width="748" height="792" alt="image" src="https://github.com/user-attachments/assets/a981ab76-30c5-42f8-bff6-bf9d9100fd0b" />
+### 2. GenrateBlocks:
+![alt text](<Screenshot 2025-10-18 121634.png>)
 
-## Task 4:
-<img width="748" height="74" alt="image" src="https://github.com/user-attachments/assets/e370410b-bed6-4393-b762-65d0dbaca32f" />
+![alt text](<Screenshot 2025-10-18 121933.png>)
 
-## Task 5:
-<img width="748" height="283" alt="image" src="https://github.com/user-attachments/assets/a6e16b65-bdcc-45b1-b6b6-bd4316120e50" />
+![alt text](<Screenshot 2025-10-18 122159.png>)
 
-<img width="748" height="124" alt="image" src="https://github.com/user-attachments/assets/aaf0d95d-c54a-4ae2-85f2-5538d96251b5" />
+### 3. Inspect blocks:
+![alt text](<Screenshot 2025-10-18 123018.png>)
 
+![alt text](<Screenshot 2025-10-18 123226.png>)
 
-## Task 6:
-<img width="748" height="664" alt="image" src="https://github.com/user-attachments/assets/0df17269-9bc2-4354-96ce-59c7580e73ae" />
+### 4. Multiple wallets and addresses:
+![alt text](<Screenshot 2025-10-18 124026.png>)
 
-## Task 7:
-<img width="748" height="738" alt="image" src="https://github.com/user-attachments/assets/7cc6cccc-d647-4619-a05c-7848578d7bfe" />
+![alt text](<Screenshot 2025-10-18 135825.png>)
 
-## Task 8:
-<img width="748" height="808" alt="image" src="https://github.com/user-attachments/assets/c32a9c8d-538d-492c-9b98-b4bb3d2c029c" />
+![alt text](<Screenshot 2025-10-18 140349.png>)
 
-<img width="748" height="808" alt="image" src="https://github.com/user-attachments/assets/d0f8cb02-9511-43aa-b594-fc2230313f85" />
+### 5. Send and Track Transactions:
+![alt text](<Screenshot 2025-10-18 161855.png>)
 
+![alt text](<Screenshot 2025-10-18 162448.png>)
 
+![alt text](<Screenshot 2025-10-18 163409.png>)
 
+### 6. Inspect UTXOs:
+![alt text](<Screenshot 2025-10-18 164115.png>)
 
-
-
-
+### 7. Decode a Raw Transaction:
+```
+./bitcoin-cli getrawtransaction \
+ "c9bbefa4d35458542603e7d9fe1b481369a2852e0e5c38a6d06b0753baa27750" \
+  1 \
+  "1f8dc73d3604981bb2ec987fd9a029015ddbaa7ba36af055f490bf9bcfb7121f"
