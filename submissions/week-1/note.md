@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 ## Week 1 Assignment Solution.
 
 1. ## successfuly setup my node and run getblockinfo.
