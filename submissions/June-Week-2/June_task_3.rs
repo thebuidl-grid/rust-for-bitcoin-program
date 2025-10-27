@@ -1,6 +1,7 @@
 use crate::Network::Mainnet;
 use crate::Network::Testnet;
 use crate::Network::Regtest;
+
 enum Network {
     Mainnet,
     Testnet,
