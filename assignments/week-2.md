@@ -43,13 +43,12 @@ Follow these steps carefully to submit your work:
 - Each of the above tasks should be treated as a separate task eg: 1 is `task_1.rs`
 - Create a new branch for your submission:
 `git checkout -b week-2-assignment`
-- Add your task inside the appropriate `week_2` folder:
+- Add your task inside the appropriate `/code/src/week_2` folder:
 ```
 week_2/
     ├── task_1.rs/
     ├── task_2.rs/
     ├── task_3.rs/
-
 ```
 - Commit and push your changes:
 ```
