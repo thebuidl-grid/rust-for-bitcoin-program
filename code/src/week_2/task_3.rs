@@ -1,36 +1,32 @@
+
+// Demonstrates enums, match statements, and returning string slices
+
 enum Network {
     Mainnet,
     Testnet,
     Regtest,
 }
 
-fn get_rpc_url(network: &Network) -> &str {
+// Function that prints network details using match
+fn print_network_info(network: &Network) {
     match network {
-        Network::Mainnet => "https://mainnet.example.com",
-        Network::Testnet => "https://testnet.example.com",
-        Network::Regtest => "http://localhost:8332",
+        Network::Mainnet => println!("You are connected to Bitcoin Mainnet "),
+        Network::Testnet => println!("You are connected to Bitcoin Testnet "),
+        Network::Regtest => println!("You are connected to Bitcoin Regtest "),
     }
 }
 
-fn print_network_details(network: &Network) {
+// Function that returns an RPC URL for each network
+fn get_rpc_url(network: &Network) -> &str {
     match network {
-        Network::Mainnet => println!("This is the main Bitcoin network."),
-        Network::Testnet => println!("This is the test Bitcoin network."),
-        Network::Regtest => println!("This is the regtest Bitcoin network."),
+        Network::Mainnet => "https://mainnet.bitcoin.org/rpc",
+        Network::Testnet => "https://testnet.bitcoin.org/rpc",
+        Network::Regtest => "http://localhost:18443",
     }
 }
 
 fn main() {
-    let network = Network::Regtest;
-
-    print_network_details(&network);
-    println!("RPC URL: {}", get_rpc_url(&network));
-    let network = Network::Mainnet;
-
-    print_network_details(&network);
-    println!("RPC URL: {}", get_rpc_url(&network));
     let network = Network::Testnet;
-
-    print_network_details(&network);
+    print_network_info(&network);
     println!("RPC URL: {}", get_rpc_url(&network));
 }
