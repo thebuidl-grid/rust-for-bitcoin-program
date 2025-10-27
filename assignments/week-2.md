@@ -40,14 +40,15 @@ enum Network {
 # How to Submit Your Assignment
 Follow these steps carefully to submit your work:
 - Fork this repository to your own GitHub account.
+- Each of the above tasks should be treated as a separate task eg: 1 is `task_1.rs`
 - Create a new branch for your submission:
-`git checkout -b week-1-assignment`
-- Add your work inside the appropriate `submissions` folder:
+`git checkout -b week-2-assignment`
+- Add your task inside the appropriate `/code/src/week_2` folder:
 ```
-submissions/
-    └── week-2/
-        ├── note.md/
-
+week_2/
+    ├── task_1.rs/
+    ├── task_2.rs/
+    ├── task_3.rs/
 ```
 - Commit and push your changes:
 ```

@@ -1,7 +1,9 @@
 // Variable binding
 // Virtually every non-'Hello World’ Rust program uses variable bindings.
 // They bind some value to a name, so it can be used later. let is used to introduce a binding, like this:
-
+fn run() {
+    specify_type();
+}
 fn bind_value() {
     let x = 5;
 }
@@ -26,17 +28,16 @@ let x: i32 = 5;
 // Mutability
 // By default, bindings are immutable. This code will not compile:
 
-fn change_value() {
-    let x = 5;
-    x = 10;
-}
+// fn change_value() {
+//     let x = 5;
+//     x = 10;
+// }
 
 // if you want it to be mutable, you can use mut:
-
-fn change_value() {
-let mut x = 5; // mut x: i32
-x = 10;
-}
+// fn change_value() {
+// let mut x = 5; // mut x: i32
+// x = 10;
+// }
 
 // Scope and shadowing
 
@@ -45,11 +46,11 @@ x = 10;
 // Function definitions are also blocks! In the following example we define two variable bindings, x and y, which live in different blocks.
 // x can be accessed from inside the fn main() {} block, while y can be accessed only from inside the inner block:
 
-fn function_range() {
-    let x: i32 = 17;
-    {
-        let y: i32 = 3;
-        println!("The value of x is {} and value of y is {}", x, y);
-    }
-    println!("The value of x is {} and value of y is {}", x, y); // This won't work.
-}
+// fn function_range() {
+//     let x: i32 = 17;
+//     {
+//         let y: i32 = 3;
+//         println!("The value of x is {} and value of y is {}", x, y);
+//     }
+//     println!("The value of x is {} and value of y is {}", x, y); // This won't work.
+// }

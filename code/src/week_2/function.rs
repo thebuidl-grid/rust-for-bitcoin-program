@@ -1,49 +1,30 @@
 // Every Rust program has at least one function, the main function:
-fn main() {
-}
 // fn is a function followed by the name, some parentheses because this function takes no arguments,
 // and then some curly braces to indicate the body.
 
 // Here’s a function named foo:
-
 fn foo() {
-
 }
 
 // So, what about taking arguments? Here’s a function that prints a number:
-
 fn print_number(x: i32) {
     println!("x is: {}", x);
 }
 
 
 // Here’s a complete program that uses print_number:
-
-
-fn main() {
+pub fn run() {
     print_number(5);
 }
 
-fn print_number(x: i32) {
-    println!("x is: {}", x);
-}
 
 // Here’s a complete program that adds two numbers together and prints them:
-
-fn main() {
-    print_sum(5, 6);
-}
-
 fn print_sum(x: i32, y: i32) {
     println!("sum is: {}", x + y);
 }
 
 // Unlike let, you must declare the types of function arguments. This does not work:
 
-
-fn print_sum(x, y) {
-    println!("sum is: {}", x + y);
-}
 
 // What about returning a value? Here’s a function that adds one to an integer:
 

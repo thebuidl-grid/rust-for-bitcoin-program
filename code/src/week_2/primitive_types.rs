@@ -6,11 +6,9 @@
 // Boalean
 
 // Rust has a built-in boolean type, named bool. It has two values, true and false:
-
 #![allow(unused_variables)]
-fn main() {
+pub fn run() {
 let x = true;
-
 let y: bool = false;
 }
 
@@ -18,10 +16,10 @@ let y: bool = false;
 
 // The char type represents a single Unicode scalar value. You can create chars with a single tick: (')
 
-fn main() {
-let x = 'x';
-let two_hearts = '💕';
-}
+// fn main() {
+// let x = 'x';
+// let two_hearts = '💕';
+// }
 
 // Unlike some other languages, this means that Rust’s char is not a single byte, but four.
 
@@ -32,7 +30,7 @@ let two_hearts = '💕';
 // These types consist of two parts: the category, and the size. For example, u16 is an unsigned type with sixteen bits of size. More bits lets you have bigger numbers.
 // If a number literal has nothing to cause its type to be inferred, it defaults:
 
-fn main() {
+fn intro_to_signed_integer() {
 let x = 42; // `x` has type `i32`.
 
 let y = 1.0; // `y` has type `f64`.

@@ -7,6 +7,11 @@
 // Using the keyword loop, Rust provides a way to loop indefinitely until some terminating statement is reached.
 // Rust's infinite loops look like this:
 
+pub fn run () {
+    sometime();
+    condition();
+}
+
 fn forever() {
     loop {
     println!("Loop forever!");
