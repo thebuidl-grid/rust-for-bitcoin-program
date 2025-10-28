@@ -1,36 +1,36 @@
+#![allow(unused)]
 enum Network {
     Mainnet,
     Testnet,
     Regtest,
 }
 
-fn get_rpc_url(network: &Network) -> &str {
-    match network {
-        Network::Mainnet => "https://mainnet.example.com",
-        Network::Testnet => "https://testnet.example.com",
-        Network::Regtest => "http://localhost:8332",
-    }
-}
-
 fn print_network_details(network: &Network) {
     match network {
-        Network::Mainnet => println!("This is the main Bitcoin network."),
-        Network::Testnet => println!("This is the test Bitcoin network."),
-        Network::Regtest => println!("This is the regtest Bitcoin network."),
+        Network::Mainnet => println!(
+            "Network: Bitcoin Mainnet\nType: Production network with real BTC\nPort: 28391"
+        ),
+        Network::Testnet => {
+            println!("Network: Bitcoin Testnet\nType: Test network with test BTC\nPort: 28231")
+        }
+        Network::Regtest => println!(
+            "Network: Bitcoin Regtest\nType: Regression test network with test BTC\nPort: 28211"
+        ),
     }
 }
 
-fn main() {
-    let network = Network::Regtest;
+fn get_rpc_url(network: &Network) -> &str {
+    match network {
+        Network::Mainnet => "https://bitcoinrpc:mainnet:user1:12345",
+        Network::Testnet => "https://bitcoinrpc:testnet:user1:12345",
+        Network::Regtest => "https://bitcoinrpc:regtest:user1:12345",
+    }
+}
 
-    print_network_details(&network);
-    println!("RPC URL: {}", get_rpc_url(&network));
-    let network = Network::Mainnet;
+pub fn main() {
+    let network_1 = Network::Mainnet;
+    let network_2 = Network::Regtest;
 
-    print_network_details(&network);
-    println!("RPC URL: {}", get_rpc_url(&network));
-    let network = Network::Testnet;
-
-    print_network_details(&network);
-    println!("RPC URL: {}", get_rpc_url(&network));
+    print_network_details(&network_1);
+    println!("{}", get_rpc_url(&network_2));
 }
