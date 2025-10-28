@@ -2,9 +2,14 @@
 mod week_2;
 
 // entry point to run all topics covered
+
 fn main() {
     // call functions from session_3 modules
     week_2::function::run();
     week_2::loops::run();
     week_2::primitive_types::run();
+    week_2::greg_task_2::mine_blocks(10);
+    
+    week_2::greg_task_3::get_rpc_url(&week_2::greg_task_3::Network::Mainnet);
+    
 }
