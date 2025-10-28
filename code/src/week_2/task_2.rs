@@ -1,21 +1,25 @@
 fn mine_blocks(limit: u8) {
-    let mut difficulty = 1;
-
     for height in 1..=limit {
         println!("Mining block #{}", height);
 
-        // Simulate difficulty
-        while difficulty < 3 {
-            println!("Simulating difficulty level {}", difficulty);
-            difficulty += 1; // the number of starting zero's
+        // E.g, Each block requires 50 more attempts than its height number
+        let target = height as u32 * 50;
+        // Attempts for each block starts at 0
+        let mut attempts = 0;
+
+        while attempts < target {
+            attempts += 1;
         }
 
+        println!("Block mined after {} attempts", attempts);
+
+        // Print checkpoint after every 5 blocks
         if height % 5 == 0 {
-            println!("Checkpoint reached");
+            println!("CHECKPOINT REACHED!\n")
         }
     }
 }
 
-fn main() {
-    mine_blocks(10);
+pub fn main() {
+    mine_blocks(28);
 }
