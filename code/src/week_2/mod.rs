@@ -4,3 +4,6 @@ pub mod loops;
 pub mod primitive_types;
 pub mod slices;
 pub mod variables;
+pub mod soma_task_1;
+pub mod soma_task_2;
+pub mod soma_task_3;

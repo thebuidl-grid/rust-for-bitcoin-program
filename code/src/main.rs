@@ -7,4 +7,7 @@ fn main() {
     week_2::function::run();
     week_2::loops::run();
     week_2::primitive_types::run();
+    week_2::soma_task_1::main();
+    week_2::soma_task_2::mine_blocks(10);
+    week_2::soma_task_3::main()
 }
