@@ -12,25 +12,15 @@ fn get_rpc_url(network: &Network) -> &str {
     }
 }
 
-fn print_network_details(network: &Network) {
-    match network {
-        Network::Mainnet => println!("This is the main Bitcoin network."),
-        Network::Testnet => println!("This is the test Bitcoin network."),
-        Network::Regtest => println!("This is the regtest Bitcoin network."),
-    }
-}
+pub fn main() {
 
-fn main() {
-    let network = Network::Regtest;
+    let mut network = Network::Regtest;
+    println!("Net: {}", get_rpc_url(&network));
 
-    print_network_details(&network);
-    println!("RPC URL: {}", get_rpc_url(&network));
-    let network = Network::Mainnet;
+    network = Network::Mainnet;
+    println!("Net: {}", get_rpc_url(&network));
 
-    print_network_details(&network);
-    println!("RPC URL: {}", get_rpc_url(&network));
-    let network = Network::Testnet;
-
-    print_network_details(&network);
-    println!("RPC URL: {}", get_rpc_url(&network));
+    network = Network::Testnet;
+    println!("Net: {}", get_rpc_url(&network));
+    
 }
