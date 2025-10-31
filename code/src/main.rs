@@ -7,4 +7,7 @@ fn main() {
     week_2::function::run();
     week_2::loops::run();
     week_2::primitive_types::run();
+    week_2::macnelson_task_1::run();
+    week_2::macnelson_task_2::run();
+    week_2::macnelson_task_3::run();
 }
