@@ -1,9 +1,9 @@
 
-fn btc_value_in_usd(btc: f64, rate: f64) -> f64 {
+pub fn btc_value_in_usd(btc: f64, rate: f64) -> f64 {
     btc * rate 
 }
 //main run main
-fn main() {
+pub fn main() {
     let btc = 0.25; //a dream amount
     let rate = 65_000.0; // example rate here 
     let value = btc_value_in_usd(btc, rate);
