@@ -16,6 +16,6 @@ fn mine_blocks(limit: u8) {
     }
 }
 
-fn main() {
+pub fn main() {
     mine_blocks(10);
 }
