@@ -20,7 +20,7 @@ fn print_network_details(network: &Network) {
     }
 }
 
-fn main() {
+pub fn main() {
     let network = Network::Regtest;
 
     print_network_details(&network);
