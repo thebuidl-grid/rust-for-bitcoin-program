@@ -1,3 +1,4 @@
+
 use crate::kelly_musk::week2::task_3;
 use crate::kelly_musk::week2::task_2;
 use crate::kelly_musk::week2::task_1;
@@ -28,4 +29,19 @@ fn main() {
     let testnent_network_url = Network::Testnet;
     task_3::get_rpc_url(&testnent_network_url);
     println!("testnet network url {:?}", get_rpc_url(&testnent_network_url))
+=======
+// import week_2 module
+mod week_2;
+// entry point to run all topics covered
+fn main() {
+    // call functions from session_3 modules
+    // week_2::function::run();
+    // week_2::loops::run();
+    // week_2::primitive_types::run();
+
+    // run assignments functions
+    week_2::task_1::main();
+    week_2::task_2::main();
+    week_2::task_3::main();
+
 }
