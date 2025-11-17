@@ -1,0 +1,4 @@
+# Ignore all build outputs
+/target/
+/**/target/
+rust_for_bitcoin/target/

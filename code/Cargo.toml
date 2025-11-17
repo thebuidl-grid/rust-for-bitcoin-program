@@ -1,0 +1,6 @@
+[package]
+name = "rust_for_bitcoin"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
