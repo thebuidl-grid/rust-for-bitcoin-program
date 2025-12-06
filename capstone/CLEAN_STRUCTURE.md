@@ -20,26 +20,6 @@ src/
     └── btc_tx.rs            # CLI with complete workflow
 ```
 
-## ❌ Removed/Isolated Modules
-
-All unrelated modules have been moved to `src/old_modules/`:
-- block.rs
-- blockchain.rs
-- mempool.rs
-- node.rs
-- api.rs
-- database.rs
-- parser.rs (old)
-- transaction.rs
-- script.rs (old)
-- script_example.rs
-- signing.rs (old)
-- tx_builder.rs (old)
-- main.rs
-- block_explorer_api.rs
-- script_interpreter.rs (old)
-- tx_cli.rs (old)
-
 ## ✅ What's Exported (lib.rs)
 
 **ONLY these modules:**
@@ -76,4 +56,3 @@ The `workflow` command demonstrates:
 4. **Validate** - Signature, pubkey hash, and script execution
 
 **This is the complete integration required!**
-
