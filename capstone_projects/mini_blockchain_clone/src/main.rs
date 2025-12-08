@@ -176,6 +176,167 @@ fn to_little_endian(hex_string: &str) -> String {
     reverse_bytes(&padded)
 }
 
+fn pause() {
+    println!("\nPress Enter to continue...");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).unwrap();
+}
+
+fn clear_screen() {
+    print!("\x1B[2J\x1B[1;1H");
+    io::stdout().flush().unwrap();
+}
+
+fn mine_new_block(blockchain: &mut Blockchain) {
+    let prev_block = if let Some(last) = blockchain.get_latest_block() {
+        last.hash.clone()
+    } else {
+        "0000000000000000000000000000000000000000000000000000000000000000".to_string()
+    };
+
+    println!("\n📝 Enter block details:");
+    println!("Merkle root (or press Enter for default): ");
+    let mut merkle_root = String::new();
+    io::stdin().read_line(&mut merkle_root).unwrap();
+    let merkle_root = if merkle_root.trim().is_empty() {
+        // Generate a simple random-like merkle root from timestamp
+        let now = SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .unwrap()
+            .as_nanos();
+        format!("{:064x}", now)
+    } else {
+        merkle_root.trim().to_string()
+    };
+
+    let timestamp = SystemTime::now()
+        .duration_since(UNIX_EPOCH)
+        .unwrap()
+        .as_secs() as u32;
+
+    let block = Block::new(
+        1,
+        prev_block,
+        merkle_root,
+        timestamp,
+        "1a6a93b3".to_string(),
+    );
+
+    let mined_block = blockchain.mine_block(block);
+    blockchain.add_block(mined_block);
+
+    println!("\n✨ Block added to blockchain!");
+
+    // CHANGE: Automatically save to JSON after mining.
+    if let Err(e) = blockchain.save_to_disk("blockchain.json") {
+        println!("⚠️  Warning: Could not auto-save blockchain: {}", e);
+    } else {
+        println!("💾 Auto-saved to blockchain.json");
+    }
+}
+
+fn view_blockchain(blockchain: &Blockchain) {
+    if blockchain.blocks.is_empty() {
+        println!("\n📭 Blockchain is empty!");
+        return;
+    }
+
+    println!("\n📚 Blockchain ({} blocks):", blockchain.blocks.len());
+    println!("════════════════════════════════════════");
+
+    for (i, block) in blockchain.blocks.iter().enumerate() {
+        println!("\n🔗 Block {}", i);
+        println!(" Version: {}", block.version);
+        println!(" Prev Block: {}", block.prev_block);
+        println!(" Merkle Root: {}", block.merkle_root);
+        println!(" Timestamp: {}", block.timestamp);
+        println!(" Bits: {}", block.bits);
+        println!(" Nonce: {}", block.nonce);
+        println!(" Hash: {}", block.hash);
+    }
+}
+
+fn validate_blockchain(blockchain: &Blockchain) {
+    println!("\n🔍 Validating blockchain...");
+
+    if blockchain.is_valid() {
+        println!("✅ Blockchain is valid!");
+    } else {
+        println!("❌ Blockchain is invalid!");
+    }
+}
+
+fn run_simulation() {
+    clear_screen();
+    println!("Mining Simulator");
+    pause();
+
+    println!("\n1. Get Transactions");
+    println!("-------------------");
+    println!("transactions: 13(including coinbase)");
+    pause();
+
+    let version = "1";
+    let prevblock = "0000000000000b60bc96a44724fd72daf9b92cf8ad00510b5224c6253ac40095";
+    let merkleroot = "0e60651a9934e8f0decd1c5fde39309e48fca0cd1c84a21ddfde95033762d86c";
+    let time = 1305200806u32;
+    let bits = "1affffff";
+
+    println!("\n2. Block");
+    println!("--------");
+    println!("version: {}", version);
+    println!("prevblock: {}", prevblock);
+    println!("merkleroot: {}", merkleroot);
+    println!("time: {} (timestamp)", time);
+    println!("bits: {}", bits);
+    println!("nonce: ________");
+    pause();
+
+    let header = format!(
+        "{}{}{}{}{}",
+        to_little_endian(&format!("{:08x}", 1)),
+        reverse_bytes(prevblock),
+        reverse_bytes(merkleroot),
+        to_little_endian(&format!("{:08x}", time)),
+        reverse_bytes(bits)
+    );
+
+    println!("\nHeader: {}________", header);
+    pause();
+
+    // CHANGE: Easy target for simulation - requires only 2 leading zero bytes (very fast mining).
+    let target = "000000000000ffffff0000000000000000000000000000000000000000000000"; 
+    println!("\n3. Target");
+    println!("---------");
+    println!("{}", target);
+    pause();
+
+    let block = Block::new(1, prevblock.to_string(), merkleroot.to_string(), time, bits.to_string());
+    let mut blockchain = Blockchain::new(target.to_string());
+    blockchain.mine_block(block);
+}
+
+// For ANSI orange (no deps): Define constants for orange (256-color code 208).
+const ORANGE: &str = "\x1b[38;5;208m";
+const RESET: &str = "\x1b[0m";
+
+fn print_bitcoin_logo() {
+    let logo_lines = vec![
+        "░░░░░░░░░░░░░░░▄▄█▀▀▀▀▀█▄▄░░░░░░░░░░░░░░░",
+        "░░░░░░░░░░░░░▄█▀░░▄░▄░░░░▀█▄░░░░░░░░░░░░░",
+        "░░░░░░░░░░░░░█░░░▀█▀▀▀▀▄░░░█░░░░░░░░░░░░░",
+        "░░░░░░░░░░░░░█░░░░█▄▄▄▄▀░░░█░░░░░░░░░░░░░",
+        "░░░░░░░░░░░░░█░░░░█░░░░█░░░█░░░░░░░░░░░░░",
+        "░░░░░░░░░░░░░▀█▄░▀▀█▀█▀░░▄█▀░░░░░░░░░░░░░",
+        "░░░░░░░░░░░░░░░▀▀█▄▄▄▄▄█▀▀░░░░░░░░░░░░░░░",
+    ];
+
+    for line in logo_lines {
+        println!("{ORANGE}{line}{RESET}");
+    }
+    println!(); // Extra space after logo.
+}
+
 fn main( ) {
     
 }
