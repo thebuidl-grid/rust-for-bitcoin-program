@@ -351,7 +351,7 @@ fn main( ) {
 
     loop {
         println!("\n{ORANGE}╔═══════════════════════════════════════╗{RESET}");
-        println!("{ORANGE}║ Mini Bitcoin Blockchain CLI ║{RESET}");
+        println!("{ORANGE}║ Mini Bitcoin Blockchain CLI           ║{RESET}");
         println!("{ORANGE}╚═══════════════════════════════════════╝{RESET}");
 
         print_bitcoin_logo();
