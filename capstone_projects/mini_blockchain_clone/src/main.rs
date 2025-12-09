@@ -338,5 +338,58 @@ fn print_bitcoin_logo() {
 }
 
 fn main( ) {
-    
+    clear_screen();
+
+    let mut blockchain = Blockchain::new(
+        "000000000000ffffff0000000000000000000000000000000000000000000000".to_string()
+    );
+
+    // target = '0000000000006a93b30000000000000000000000000000000000000000000000' //harder target
+
+    // Try to load existing blockchain
+    let _ = blockchain.load_from_disk("blockchain.json");
+
+    loop {
+        println!("\n{ORANGE}╔═══════════════════════════════════════╗{RESET}");
+        println!("{ORANGE}║ Mini Bitcoin Blockchain CLI ║{RESET}");
+        println!("{ORANGE}╚═══════════════════════════════════════╝{RESET}");
+
+        print_bitcoin_logo();
+
+        println!("\n{ORANGE}1. Run mining simulation {RESET}");
+        println!("{ORANGE}2. View blockchain{RESET}");
+        println!("{ORANGE}3. Validate blockchain{RESET}");
+        println!("{ORANGE}4. Save blockchain to disk{RESET}");
+        println!("{ORANGE}5. Load blockchain from disk{RESET}");
+        println!("{ORANGE}6. Mine new block (interactive){RESET}"); 
+        println!("{ORANGE}7. Exit{RESET}");
+        println!("\nSelect an option: ");
+
+        let mut choice = String::new();
+        io::stdin().read_line(&mut choice).unwrap();
+
+        match choice.trim() {
+            "1" => run_simulation(),
+            "2" => view_blockchain(&blockchain),
+            "3" => validate_blockchain(&blockchain),
+            "4" => {
+                if let Err(e) = blockchain.save_to_disk("blockchain.json") {
+                    println!("Error saving: {}", e);
+                }
+            }
+            "5" => {
+                if let Err(e) = blockchain.load_from_disk("blockchain.json") {
+                    println!("Error loading: {}", e);
+                }
+            }
+            "6" => mine_new_block(&mut blockchain), // CHANGE: Now accessible via menu.
+            "7" => {
+                println!("Goodbye! 👋");
+                break;
+            }
+            _ => println!("Invalid option!"),
+        }
+
+        pause(); // CHANGE: Add pause after each action for better UX.
+    }
 }
