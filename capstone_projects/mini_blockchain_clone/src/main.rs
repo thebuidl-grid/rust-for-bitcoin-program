@@ -359,10 +359,9 @@ fn main( ) {
         println!("\n{ORANGE}1. Run mining simulation {RESET}");
         println!("{ORANGE}2. View blockchain{RESET}");
         println!("{ORANGE}3. Validate blockchain{RESET}");
-        println!("{ORANGE}4. Save blockchain to disk{RESET}");
-        println!("{ORANGE}5. Load blockchain from disk{RESET}");
-        println!("{ORANGE}6. Mine new block (interactive){RESET}"); 
-        println!("{ORANGE}7. Exit{RESET}");
+        println!("{ORANGE}4. Load blockchain from disk{RESET}");
+        println!("{ORANGE}5. Mine new block (interactive){RESET}"); 
+        println!("{ORANGE}6. Exit{RESET}");
         println!("\nSelect an option: ");
 
         let mut choice = String::new();
@@ -373,17 +372,12 @@ fn main( ) {
             "2" => view_blockchain(&blockchain),
             "3" => validate_blockchain(&blockchain),
             "4" => {
-                if let Err(e) = blockchain.save_to_disk("blockchain.json") {
-                    println!("Error saving: {}", e);
-                }
-            }
-            "5" => {
                 if let Err(e) = blockchain.load_from_disk("blockchain.json") {
                     println!("Error loading: {}", e);
                 }
             }
-            "6" => mine_new_block(&mut blockchain), // CHANGE: Now accessible via menu.
-            "7" => {
+            "5" => mine_new_block(&mut blockchain), // CHANGE: Now accessible via menu.
+            "6" => {
                 println!("Goodbye! 👋");
                 break;
             }
