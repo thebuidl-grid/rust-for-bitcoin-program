@@ -49,6 +49,14 @@ Hash some data (hex input):
 bitcoin-do sha256 68656c6c6f
 ```
 
+```bash
+bitcoin-do Hash160 68656c6c6f
+```
+
+```bash
+bitcoin-do Ripemd160 68656c6c6f
+```
+
 ## License
 
 MIT
