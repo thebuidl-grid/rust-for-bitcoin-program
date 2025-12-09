@@ -8,7 +8,7 @@
 2. ## Create new wallets
 
 ![Result screenshot](./screenshot/002_createwallet.png)
-   
+
    ### List wallet generated
 
 ![Result screenshot](./screenshot/003_listwallets.png)
@@ -39,7 +39,7 @@
 
    ![Result screenshot](./screenshot/009_getbalance_getnewaddress_sendtoaddress_gettransaction.png)
 
-6. ## used command listunspent to view my spendable balance 
+6. ## used command listunspent to view my spendable balance
 
     ![Result screenshot](./screenshot/011_listunspent.png)
 
@@ -47,7 +47,7 @@
    ![Result screenshot](./screenshot/012_gettransaction.png)
 
 8. ## sent BTC between two wallets
-> first i created two wallet named sender and receiver 
+> first i created two wallet named sender and receiver
 
 ![Result screenshot](./screenshot/013_createwallet_sender_reciever_listwallets.png)
 
@@ -56,7 +56,6 @@
 ![Result screenshot](./screenshot/014_getbalance_sendtoaddress_generate_1_block.png)
 
 =======
-<<<<<<< HEAD
 ### 1. Verify Your Node Setup: Ensure your node is correctly configured and responsive via CLI
 
 ![Screenshot](https://greasy-yellow-7wefaen07t.edgeone.app/Screenshot%20From%202025-10-20%2010-45-23.png)
@@ -186,7 +185,7 @@ bitcoin-cli -rpcwallet=sender getbalance
 **I defined a low fallbackfee that's why it's 25.00000141**
 
 - `bitcoin-cli -rpcwallet=receivers getnewaddress`
-  
+
 ```zsh
 bitcoin-cli -rpcwallet=receivers getnewaddress
 crt1qscjd77eu0h38r36m29uanvutxlufhsrcshsx9v
@@ -195,7 +194,7 @@ crt1qscjd77eu0h38r36m29uanvutxlufhsrcshsx9v
 - `bitcoin-cli -rpcwallet=senders sendtoaddress crt1qscjd77eu0h38r36m29uanvutxlufhsrcshsx9v 3 "" "" false false null "unset" null 1`
 
 ```zsh
-bitcoin-cli -rpcwallet=senders sendtoaddress crt1qscjd77eu0h38r36m29uanvutxlufhsrcshsx9v 3 
+bitcoin-cli -rpcwallet=senders sendtoaddress crt1qscjd77eu0h38r36m29uanvutxlufhsrcshsx9v 3
 cfd7bcd6385484126a3c4816f180cf0e1b79076c3cec95bb60e89def21b5b01f
 ```
 
@@ -209,8 +208,7 @@ bitcoin-cli -rpcwallet=receiver getbalance
 ```
 
 
-=======
-# Week 1 Assignment 
+# Week 1 Assignment
 
 I learnt the fundamentals of the bitcoin network and how to setup a local development environment using Bitcoin core.
 
@@ -252,5 +250,4 @@ I learnt the fundamentals of the bitcoin network and how to setup a local develo
  "c9bbefa4d35458542603e7d9fe1b481369a2852e0e5c38a6d06b0753baa27750" \
   1 \
   "1f8dc73d3604981bb2ec987fd9a029015ddbaa7ba36af055f490bf9bcfb7121f"
->>>>>>> 6efcbc712f1988d3b5dac19cc1f62bddf90fe37b
 >>>>>>> 755177d84fa162159ff1d9415c246b242c8ebb50
