@@ -9,7 +9,7 @@ The goal of this project is to demonstrate how a real-world fintech donation sys
 ##  Live Links
 
 - **Frontend (Vercel):**  
-   [Visit Live Site](https://frontend-ogk6xpgmv-christopherdominics-projects.vercel.app/)	
+   [Visit Live Site](https://frontend-1jywat4i5-christopherdominics-projects.vercel.app)	
 
 - **Backend API (Render):**  
   [Visit API](https://satsforgood-render.onrender.com)
