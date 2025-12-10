@@ -62,7 +62,6 @@ impl Opcode {
             Opcode::OpDrop => "OP_DROP".to_string(),
             Opcode::OpSwap => "OP_SWAP".to_string(),
             
-            // This line now works perfectly because format! returns a String
             Opcode::OpPushBytes(n) => format!("OP_PUSHBYTES_{}", n),
         }
     }
