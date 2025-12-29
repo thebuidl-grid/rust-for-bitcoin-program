@@ -1,0 +1,20 @@
+[package]
+name = "btc-script-interpreter"
+version = "0.1.0"
+edition = "2024"
+author = "emarc"
+
+[dependencies]
+hex = "0.4.3"
+k256 = "0.13.4"
+ripemd = "0.1.3"
+sha2 = "0.10.9"
+bitcoin = "0.31"
+secp256k1 = { version = "0.28", features = ["rand-std"] }
+clap = { version = "4.4", features = ["derive"] }
+anyhow = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[dev-dependencies]
+bitcoincore-rpc = "0.19"
