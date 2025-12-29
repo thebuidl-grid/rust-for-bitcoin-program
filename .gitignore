@@ -2,3 +2,4 @@
 /target/
 /**/target/
 rust_for_bitcoin/target/
+.DS_Store
