@@ -1,0 +1,30 @@
+[package]
+name = "regtest-block-explorer"  
+version = "0.1.1"
+edition = "2024"
+description = "A CLI tool for indexing Bitcoin regtest blocks via RPC and serving a block explorer API."
+authors = ["Uche Ofatu <ucheofatu@gmail.com>, Nmesoma Enyi"]  
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/Macnelson9/Rust_Project"
+keywords = ["bitcoin", "regtest", "cli", "block-explorer"]
+categories = ["command-line-utilities", "cryptography::cryptocurrencies"]
+
+[dependencies]
+actix-web = "4.9"
+actix-rt = "2.10"
+bitcoin = "0.32"
+rusqlite = { version = "0.32", features = ["bundled"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+hex = "0.4"
+anyhow = "1.0"
+tokio = { version = "1.40", features = ["full"] }
+env_logger = "0.11.8"
+log = "0.4.29"
+reqwest = { version = "0.12", features = ["json"] }
+bitcoin-crypto-toolkit = "0.1.0"
+clap = { version = "4.0", features = ["derive"] }  
+
+[[bin]]
+name = "regtest-block-explorer"  
+path = "src/main.rs"
