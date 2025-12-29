@@ -1,0 +1,25 @@
+[package]
+name = "elliptic_curve_math_engine"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "sec"
+path = "src/main.rs"
+
+[dependencies]
+# For point arithmetic
+hex-literal = "1.1.0"
+primitive-types = "0.14.0"
+
+# For keypair derivation
+ciborium = "0.2.2"
+serde = { version = "1.0.228", features = ["derive"] }
+sha256 = "1.6.0"
+uint = "0.10.0"
+uuid = { version = "1.19.0", features = ["v4", "serde"] }
+# For random number generation to derive pubkey fromt the private key and generator
+rand = "0.9.2"
+
+clap = { version = "4.5.53", features = ["derive"] }
+hex = "0.4.3"
