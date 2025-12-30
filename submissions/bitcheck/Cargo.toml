@@ -1,0 +1,14 @@
+[package]
+name = "bitcheck"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+hex = "0.4"
+sha2 = "0.10"
+ripemd = "0.1"
+lazy_static = "1.4"
+anyhow = "1.0"
+secp256k1 = { version = "0.29", features = ["rand-std", "serde"] }
+bitcoin = { version = "0.29", features = ["serde"] }
+colored = "3.0.0"
